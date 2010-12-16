@@ -80,6 +80,9 @@ function finish_openid_auth() {
 		$openid_return_to = openid_service_url('consumer');
 	}
 
+	// XXX: mail.ru workaround
+	$_SERVER['QUERY_STRING'] .= '&openid.ns.sreg=' . Auth_OpenID_SREG_NS_URI_1_1;
+
 	$response = $consumer->complete($openid_return_to);
 
 	unset($_SESSION['openid_return_to']);
