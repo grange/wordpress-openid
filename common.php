@@ -399,6 +399,7 @@ function openid_get_user_data($identity_url) {
 
 	// if display_name is still the same as the URL, clean that up a bit
 	if ($data['display_name'] == $identity_url) {
+		$identity_url = preg_replace('|/$|', '', $identity_url);
 		$parts = parse_url($identity_url);
 		if ($parts !== false) {
 			$host = preg_replace('/^www./', '', $parts['host']);
