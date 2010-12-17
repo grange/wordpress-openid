@@ -373,7 +373,7 @@ msgstr "Ошибка аутентификации через OpenID"
 
 #: comments.php:271
 msgid "Sorry, but you must provide a valid OpenID to be able to post a comment"
-msgstr "Извините, но необходимо указать работающий OpenID, чтобы комментировать"
+msgstr "Извините, но необходимо указать свой OpenID, чтобы комментировать"
 
 #: comments.php:273
 msgid "Back"
