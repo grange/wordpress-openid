@@ -266,6 +266,12 @@ function openid_comment_form() {
 
 function openid_repost_comment_anonymously($post) {
 	if (get_option('openid_require_auth')) {
+		$html = '
+		<h1>'.__('OpenID Authentication Error', 'openid').'</h1>
+		<p id="error">'.__('Sorry, but you must provide a valid OpenID to be able to post a comment', 'openid').'</p>
+		<a href="'.get_comments_link($post['comment_post_ID']).'">'.
+		__('Back', 'openid');
+		openid_page($html, __('OpenID Authentication Error', 'openid'));
 		return;
 	}
 
