@@ -265,6 +265,10 @@ function openid_comment_form() {
 
 
 function openid_repost_comment_anonymously($post) {
+	if (get_option('openid_require_auth')) {
+		return;
+	}
+
 	$comment_page = (defined('OPENID_COMMENTS_POST_PAGE') ? OPENID_COMMENTS_POST_PAGE : 'wp-comments-post.php');
 
 	$html = '

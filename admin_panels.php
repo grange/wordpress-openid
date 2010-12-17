@@ -76,6 +76,7 @@ function openid_admin_register_settings() {
 	register_setting('discussion', 'openid_no_require_name');
 	register_setting('discussion', 'openid_enable_approval');
 	register_setting('discussion', 'openid_enable_commentform');
+	register_setting('discussion', 'openid_require_auth');
 
 	register_setting('openid', 'openid_blog_owner');
 	register_setting('openid', 'openid_cap');
@@ -1002,6 +1003,13 @@ function openid_discussion_settings() {
 			<input type="checkbox" name="openid_enable_approval" id="openid_enable_approval" value="1" <?php 
 				echo checked(true, get_option('openid_enable_approval'));  ?> />
 			<?php _e('Always approve comments left with a verified OpenID', 'openid'); ?>
+		</label>
+		<br />
+
+		<label for="openid_require_auth">
+			<input type="checkbox" name="openid_require_auth" id="openid_require_auth" value="1" <?php 
+				echo checked(true, get_option('openid_require_auth'));  ?> />
+			<?php _e('Require OpenID authentication', 'openid'); ?>
 		</label>
 		<br />
 
