@@ -371,6 +371,14 @@ msgstr ""
 msgid "OpenID Authentication Error"
 msgstr ""
 
+#: comments.php:271
+msgid "Sorry, but you must provide a valid OpenID to be able to post a comment"
+msgstr ""
+
+#: comments.php:273
+msgid "Back"
+msgstr ""
+
 #: comments.php:272
 msgid ""
 "We were unable to authenticate your claimed OpenID, however you can continue "
