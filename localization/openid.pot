@@ -350,6 +350,10 @@ msgstr ""
 msgid "Always approve comments left with a verified OpenID"
 msgstr ""
 
+#: admin_panels.php:1012
+msgid "Require OpenID authentication"
+msgstr ""
+
 #: comments.php:106
 msgid "Error: please fill the required fields (name, email)."
 msgstr ""
