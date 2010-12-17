@@ -68,7 +68,9 @@ function openid_process_comment( $comment ) {
 	@session_start();
 	unset($_SESSION['openid_posted_comment']);
 
-	if ( !empty($openid_url) ) {  // Comment form's OpenID url is filled in.
+	if ( !empty($openid_url) || get_option('openid_require_auth') ) {
+		// Comment form's OpenID url is filled in or
+		// OpenID authentication is required
 		$_SESSION['openid_comment_post'] = $_POST;
 		$_SESSION['openid_comment_post']['comment_author_openid'] = $openid_url;
 		$_SESSION['openid_comment_post']['openid_skip'] = 1;
@@ -124,7 +126,8 @@ function openid_comment_approval($approved) {
 
 
 /**
- * If the comment contains a valid OpenID, skip the check for requiring a name and email address.  Even if
+ * If the comment contains a valid OpenID or OpenID authentication is required,
+ * skip the check for requiring a name and email address.  Even if
  * this data isn't provided in the form, we may get it through other methods, so we don't want to bail out
  * prematurely.  After OpenID authentication has completed (and $_REQUEST['openid_skip'] is set), we don't
  * interfere so that this data can be required if desired.
@@ -155,7 +158,8 @@ function openid_option_require_name_email( $value ) {
 
 
 	if (array_key_exists('openid_identifier', $_POST)) {
-		if( !empty( $_POST['openid_identifier'] ) ) {
+		if( !empty( $_POST['openid_identifier'] ) ||
+		    get_option('openid_require_auth')) {
 			return false;
 		}
 	} else {
