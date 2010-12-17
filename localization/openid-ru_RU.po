@@ -413,7 +413,7 @@ msgstr ""
 
 #: common.php:692
 msgid "Please Wait..."
-msgstr ""
+msgstr "Подождите пожалуйста..."
 
 #: common.php:696
 msgid "OpenID Authentication Redirect"
